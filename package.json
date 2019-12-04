@@ -4,7 +4,13 @@
   "description": "A Node.js starter for the Serverless Framework with async/await and unit test support",
   "main": "handler.js",
   "scripts": {
-    "test": "serverless-bundle test"
+    "test": "serverless-bundle test",
+    "lambdaput": "serverless invoke local --function create --path mocks/create-event.json",
+    "lambdaget": "serverless invoke local --function get --path mocks/get-event.json",
+    "lambdagetall": "serverless invoke local --function list --path mocks/list-event.json",
+    "lambdaputupdate": "serverless invoke local --function update --path mocks/update-event.json",
+    "lambdadelete": "serverless invoke local --function delete --path mocks/delete-event.json",
+    "lambdabilling": "serverless invoke local --function billing --path mocks/billing-event.json"
   },
   "author": "",
   "license": "MIT",
@@ -14,11 +20,13 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.580.0",
+    "jest": "^24.9.0",
     "serverless-bundle": "^1.2.5",
     "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.3.3"
   },
   "dependencies": {
+    "stripe": "^7.14.0",
     "uuid": "^3.3.3"
   }
 }
